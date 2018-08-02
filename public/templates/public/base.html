@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+
+    <title>Michael D Harrington</title>
+  </head>
+  <body>
+  <div class="main">
+    {% include 'public/components/nav.html' %}
+    <div class="content">
+      {% block content %}
+      {% endblock %}
+    </div>
+    {% include 'public/components/footer.html' %}
+
+  </div>
+
+  </body>
+</html>

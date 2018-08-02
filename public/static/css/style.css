@@ -1,0 +1,79 @@
+@font-face {
+  font-family: 'CGaramondSemi';
+  src: url('../fonts/CormorantGaramond-SemiBold.ttf');
+}
+@font-face {
+  font-family: 'Avenir';
+  src: url(../fonts/AvenirNext-Regular.ttf);
+}
+html{
+  min-height: 100vh;
+}
+body{
+  font-size: 16px;
+  font-family: 'Avenir', sans-serif;
+  margin: 0px;
+  color: #181A1B;
+  line-height: 1.6;
+  text-rendering: optimizeLegiility;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+a:hover{
+  /* put a transition effect here */
+  opacity: 0.8;
+  transition: 0.15s;
+}
+.main{
+  width: 900px;
+  min-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+nav{
+  width: 100%;
+  display: flex;
+  align-self: flex-start;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  order: 1;
+}
+.nav__name{
+  font-family: 'CGaramondSemi';
+  font-size: 1.6em;
+}
+
+.nav__link{
+  padding-left: 30px;
+}
+
+/* NEW FILE */
+
+.content{
+  width: 100%;
+  order: 2;
+  padding: 20px;
+  border: 1px solid black;
+  align-self: flex-start;
+}
+
+
+/* NEW FILE */
+
+.footer{
+  padding: 20px;
+  align-self: flex-end;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  order: 99;
+}
+.footer__link{
+  padding-left: 30px;
+}
