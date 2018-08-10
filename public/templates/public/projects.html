@@ -1,25 +1,17 @@
 {% extends 'public/base.html' %}
 
 {% block content %}
-<h1>This is the projects list page</h1>
+<div class="projects">
 
-<ul>
+<div class="projects__grid">
   {% for project in object_list %}
-  <li><a href="/projects/{{ project.id }}/">{{ project.title }}</a></li>
+
+    <a class="project__tile" style="background-image: url({{ project.tile.url }});" href="/projects/{{ project.id }}/">
+      <img src="" alt="">
+    </a>
+
   {% endfor %}
-</ul>
+</div>
 
-
+</div>
 {% endblock %}
-
-<!--
-{% if project_list %}
-<ul>
-  {% for project in object_list %}
-  <li><a href="/projects/{{ project.id }}/">{{ project.title }}</a></li>
-  {% endfor %}
-</ul>
-{% else %}
-  <p>No projects are available.</p>
-{% endif %}
--->

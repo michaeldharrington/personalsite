@@ -1,11 +1,52 @@
 {% extends 'public/base.html' %}
 
 {% block content %}
-<p>This is a project page</p>
+<div class="project">
 
-<h1>{{ project.title }}</h1>
-<p>{{ project.pub_date }}</p>
-<p>{{ project.description }}</p>
-<img src="{{ project.img }}" alt="cat didn't show up, huh?">
+  <div class="project__img--main" style="background-image: url({{ project.img_main.url }})">
 
+  </div>
+
+  <div class="project__about">
+
+    <div>
+
+      <div class="project__title label">{{ project.title }}</div>
+
+      {% if project.description %}
+      <div class="project__description">
+        {{ project.description }}
+      </div>
+      {% endif %}
+
+      {% if project.text %}
+      <div class="project__text">
+        {{ project.text }}
+      </div>
+      {% endif %}
+
+      {% if project.detail %}
+      <ul class="project__details">
+        <li>{{ project.detail }}</li>
+      </ul>
+      {% endif %}
+    </div>
+
+    <div class="project__images">
+      {% for image in project.images.all %}
+      <div class="image__container" style="background:{{ image.bg_color }};">
+        <div class="image__wrap--78">
+          {% if image.image_type == DESK %}
+          <div class="image__bar"></div>
+          {% endif %}
+          <img class="project__image" src="{{ image.image.url }}" alt="test">
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+
+
+  </div>
+</div>
 {% endblock %}

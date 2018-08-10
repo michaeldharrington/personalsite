@@ -1,42 +1,47 @@
 from django.db import models
-from pygments.lexers import get_all_lexers, get_lexer_by_name
-from pygments.styles import get_all_styles
-from pygments.formatters.html import HtmlFormatter
-from pygments import highlight
-
-
-LEXERS = [item for item in get_all_lexers() if item[1]]
-LANGUAGE_CHOICES = sorted([(item[1][0], item[0]) for item in LEXERS])
-STYLE_CHOICES = sorted((item, item) for item in get_all_styles())
-
 
 class Project(models.Model):
-    created = models.DateTimeField()
     title = models.CharField(max_length=200)
-    code = models.TextField(default='')
-    description = models.TextField(default='')
-    full_text = models.TextField(default='')
-    img = models.ImageField(upload_to='project_img')
-    linenos = models.BooleanField(default=False)
-    language = models.CharField(choices=LANGUAGE_CHOICES, default='python', max_length=100)
-    style = models.CharField(choices=STYLE_CHOICES, default='friendly', max_length=100)
-
-    owner = models.ForeignKey('auth.User', related_name='projects', on_delete=models.CASCADE)
-    highlighted = models.TextField()
+    path = models.CharField(max_length=10, default='')
+    tile = models.ImageField()
+    img_main = models.ImageField()
+    description = models.TextField(blank=True, default='')
+    text = models.TextField(blank=True, default='')
+    detail = models.TextField(blank=True, default='')
+    created = models.DateField(default='')
 
     def __str__(self):
         return self.title
-
 
     class Meta:
         ordering = ('created',)
 
 
-    def save(self, *args, **kwargs):
-        lexer = get_lexer_by_name(self.language)
-        linenos = 'table' if self.linenos else False
-        options = {'title': self.title} if self.title else {}
-        formatter = HtmlFormatter(style=self.style, linenos=linenos,
-                              full=True, **options)
-        self.highlighted = highlight(self.code, lexer, formatter)
-        super(Project, self).save(*args, **kwargs)
+class ProjectImage(models.Model):
+    project = models.ForeignKey(Project, related_name='images', on_delete=models.CASCADE)
+    image = models.ImageField()
+    bg_color = models.CharField(max_length=7, default='#f2f2f2')
+
+    DESK = 'Desk'
+    MOBI = 'Mobile'
+    LOGO = 'Logo'
+    FULL = 'Full Width'
+    IMAGE_TYPE_CHOICES = (
+        (DESK, 'Desktop'),
+        (MOBI, 'Mobile'),
+        (LOGO, 'Logo'),
+        (FULL, 'Full Width'),
+    )
+    image_type = models.CharField(
+        max_length=4,
+        choices = IMAGE_TYPE_CHOICES,
+        default = DESK,
+    )
+
+    def has_bar(self):
+        if image_type == DESK:
+            return True
+        elif image_type == LOGO:
+            return False
+        else:
+            pass

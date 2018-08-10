@@ -1,0 +1,118 @@
+<!--
+<div class="home__left">
+  <p>
+    I'm a web developer and systems designer from Ringoes, NJ.
+  </p>
+  <p>
+    I work as Lead Web Designer at Pear Design, a boutique agency of developers, designers, and digital storytellers.
+  </p>
+  <p>
+    I'm interested most directly on the alignment of user-centered design and component-based style systems within modern digital product development.
+  </p>
+  <p>
+    I've run a marathon, a summer camp for nerds, and a satirical political campaign which saw 1.4 million organic impression per week.
+  </p>
+  <p>I like my coffee strong, and my impressions organic.</p>
+  <a class="link--blue" href="mailto:me@michaeldharrington.com">Get in touch</a>
+</div>
+
+<div class="home__right">
+  <div class="label">
+    Highlights:
+  </div>
+  <div class="highlights">
+    <div class="highlight">
+      <p class="highlight__date">Feb 2017 - Present</p>
+      <p class="highlight__title">Lead Web Designer</p>
+      <p class="highlight__company">Pear Design</p>
+    </div>
+    <div class="highlight">
+      <p class="highlight__date">Jan 2017 - Apr 2018</p>
+      <p class="highlight__title">Digital Strategy Consultant</p>
+      <p class="highlight__company">(Contract)</p>
+    </div>
+
+    <div class="highlight">
+      <p class="highlight__date">Dec 2014 to July 2016</p>
+      <p class="highlight__title">Director</p>
+      <p class="highlight__company">Foundation for Creative Diplomacy</p>
+    </div>
+    <div class="highlight">
+      <p class="highlight__date">2011 to 2015</p>
+      <p class="highlight__title">B.A. Geography</p>
+      <p class="highlight__company">Rutgers University</p>
+    </div>
+
+    <a class="highlights__link" href="{% url 'resume' %}">View full resume →</a>
+
+  </div>
+
+
+
+  <div class="areas">
+    <div class="label">
+      Areas of focus:
+    </div>
+    <ul>
+      <li class="areas__li">User-centered design</li>
+      <li class="areas__li">Frameworks / systems design</li>
+      <li class="areas__li">Javascript ES6</li>
+      <li class="areas__li">Python/Django REST</li>
+    </ul>
+  </div>
+
+</div>
+
+
+    <div class="project__left">
+      {% if project.objective %}
+      <div class="project__LeftHeader">
+        <div class="label">Objective</div>
+        <div class="project__objective">
+          {{ project.objective }}
+        </div>
+      </div>
+      {% endif %}
+
+      <div class="project__img--detail">
+        {% if project.left_text %}
+        {{ project.left_text }}
+        {% endif %}
+      </div>
+
+      {% if project.left_images %}
+      <img src="{{ project.left_images.url }}" alt="" class="project__img--left">
+      {% endif %}
+
+    </div>
+    <div class="project__right">
+      <div class="project__title label">{{ project.title }}</div>
+
+      <p class="project__headline">{{ project.description }}</p>
+
+
+      <div class="project__text">
+        {% if project.right_text %}
+        {{ project.right_text }}
+        {% endif %}
+
+      </div>
+
+      <ul class="project__details">
+        {% if project.detail %}
+        <li>{{ project.detail }}</li>
+        {% endif %}
+      </ul>
+
+
+
+    </div>
+
+    {% if project.right_images %}
+    <img src="{{ project.right_images.url }}" alt="" class="project__img--right">
+    {% endif %}
+
+  </div>
+
+
+-->

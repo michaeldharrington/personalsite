@@ -1,11 +1,11 @@
 from rest_framework import serializers
-from public.models import Project, LANGUAGE_CHOICES, STYLE_CHOICES
+from public.models import Project
 from django.contrib.auth.models import User
 
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
-        fields = ('id', 'title', 'description', 'full_text', 'img', 'linenos', 'language', 'style')
+        fields = ('id', 'title', 'description')
 
 class UserSerializer(serializers.ModelSerializer):
     projects = serializers.PrimaryKeyRelatedField(many=True, queryset=Project.objects.all())
