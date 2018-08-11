@@ -2,7 +2,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
-from public.views import HomeView, AboutView, ResView, ProjectListView, ProjectView
+from public.views import HomeView, SiteView, ResView, ProjectListView, ProjectView
 
 
 from django.conf.urls import url
@@ -12,7 +12,7 @@ from public import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomeView.as_view(), name='home'),
-    path('about/', AboutView.as_view(), name='about'),
+    path('site/', SiteView.as_view(), name='site'),
     path('resume/', ResView.as_view(), name='resume'),
     path('projects/', ProjectListView.as_view(), name='projects'),
     path('projects/<int:pk>/', ProjectView.as_view(), name='project-detail'),

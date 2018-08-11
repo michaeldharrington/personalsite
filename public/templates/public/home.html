@@ -1,75 +1,30 @@
 {% extends 'public/base.html' %}
 
+
 {% block content %}
 
-<div class="home__top">
-  <!--
-  <div class="home__headline">
-    <h1>Designer & web developer</h1>
-  </div> -->
-  <div class="projects__grid">
-    {% for project in object_list %}
+<div class="page__top">
 
-      <a class="project__tile" style="background-image: url({{ project.tile.url }});" href="/projects/{{ project.id }}/"></a>
+  <div class="page__header grid">
+  {% include 'public/components/nav.html' %}
 
-    {% endfor %}
+    <div class="intro">
+      <h1 class="headline">I design and build products for <span>people</span>.</h1>
+    </div>
+
+    {% include 'public/components/buttons.html' %}
+
+    <div class="projects__grid">
+      {% for project in object_list %}
+
+        {% if project.is_published %}
+        <a class="project__tile" style="background-image: url({{ project.tile.url }});" href="/projects/{{ project.id }}/"></a>
+        {% endif %}
+
+      {% endfor %}
+    </div>
   </div>
 </div>
-<!--
-<div class="home__bottom">
-
-  <div class="home__experience">
-    <div class="label">
-      Experience
-    </div>
-    <div class="highlights">
-      <div class="highlight">
-        <p class="highlight__date">Feb 2017 - Present</p>
-        <p class="highlight__title">Lead Web Designer</p>
-        <p class="highlight__company">Pear Design</p>
-      </div>
-      <div class="highlight">
-        <p class="highlight__date">Jan 2017 - Apr 2018</p>
-        <p class="highlight__title">Digital Strategy Consultant</p>
-        <p class="highlight__company">(Contract)</p>
-      </div>
-
-      <div class="highlight">
-        <p class="highlight__date">Dec 2014 to July 2016</p>
-        <p class="highlight__title">Director</p>
-        <p class="highlight__company">Foundation for Creative Diplomacy</p>
-      </div>
-      <div class="highlight">
-        <p class="highlight__date">2011 to 2015</p>
-        <p class="highlight__title">B.A. Geography</p>
-        <p class="highlight__company">Rutgers University</p>
-      </div>
-
-      <a class="highlights__link" href="{% url 'resume' %}">View full resume →</a>
-    </div>
-  </div>
-
-
-  <div class="home__recentWork">
-    <div class="label">
-      Recent Work
-    </div>
-
-    {% for project in object_list %}
-    <a class="recentWork__link" href="/projects/{{ project.id }}/">
-      <h3 class="recentWork__title">{{ project.title }}</h3>
-      <p class="recentWork__description">{{ project.description }}</p>
-    </a>
-    {% endfor %}
-    <div class="">
-      <a href="{% url 'projects' %}">View all work</a>
-    </div>
-  </div>
-
-</div>
--->
-
-
 
 
 

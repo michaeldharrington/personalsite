@@ -1,7 +1,20 @@
 {% extends 'public/base.html' %}
 
 {% block content %}
-<div class="resume">
+
+<div class="page__top grid">
+
+  {% include 'public/components/nav.html' %}
+
+  <div class="intro">
+    <h1 class="headline">Let's build together.</h1>
+  </div>
+
+  {% include 'public/components/buttons.html' %}
+
+</div>
+
+<div class="page__bottom resume">
     <div class="resume__left">
       <div class="section">
         <div class="section__label">

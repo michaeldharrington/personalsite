@@ -18,9 +18,9 @@ class HomeView(TemplateView):
         context["object_list"] = Project.objects.all()
         return context
 
-class AboutView(TemplateView):
-    template_name = 'public/about.html'
-    page_name = 'About'
+class SiteView(TemplateView):
+    template_name = 'public/site.html'
+    page_name = 'Site'
 
 class ResView(TemplateView):
     template_name = 'public/resume.html'

@@ -4,11 +4,13 @@ class Project(models.Model):
     title = models.CharField(max_length=200)
     path = models.CharField(max_length=10, default='')
     tile = models.ImageField()
-    img_main = models.ImageField()
+    img_main = models.ImageField(blank=True)
     description = models.TextField(blank=True, default='')
     text = models.TextField(blank=True, default='')
     detail = models.TextField(blank=True, default='')
     created = models.DateField(default='')
+    is_published = models.BooleanField(default=False)
+
 
     def __str__(self):
         return self.title

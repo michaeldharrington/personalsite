@@ -1,0 +1,13 @@
+<div class="buttons">
+  {% if "projects" in request.path %}
+
+  <a class="buttons__link" href="{% url 'home' %}">Back to home</a>
+
+  {% else %}
+
+  <a class="buttons__link" href="{% url 'home' %}">Work</a>
+  <a class="buttons__link" href="{% url 'resume' %}">About</a>
+  <a class="buttons__link" href="">Contact</a>
+
+  {% endif %}
+</div>

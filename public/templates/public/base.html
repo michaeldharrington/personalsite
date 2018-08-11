@@ -14,15 +14,6 @@
   <body>
   <div class="main" style="margin: 0 auto;">
     <div class="page">
-    {% include 'public/components/nav.html' %}
-
-    <div class="button__grid">
-
-      <a class="button button--home" href="{% url 'home' %}"><img src="{% static 'icons/grid.svg' %}" alt="Grid" {% if request.path == '/' %} class="current"{% endif %}></a>
-      <!-- <a class="button" href="#"></a> -->
-      <a class="button button--res" href="{% url 'resume' %}"><img src="{% static 'icons/doc.svg' %}" alt="Resume" {% if request.path == '/resume/' %} class="current"{% endif %}></a>
-    </div>
-
 
     <div class="content">
       {% block content %}
