@@ -2,30 +2,31 @@
 
 {% block content %}
 
-<div class="page__top--bg" {% if project.img_main %}style="background-image: linear-gradient(120deg, rgba(0,0,0,0.5), rgba(0,0,0,0.5) 50%), url({{ project.img_main.url }})"{% endif %}>
-  <div class="page__top--inner grid">
+<div class="page__top" {% if project.img_main %}{% endif %}>
 
-    <div class="page__header">
-    {% include 'public/components/nav.html' %}
-
-      <div class="intro">
-        <h1 class="headline">{{ project.title }}</h1>
-      </div>
-
-    {% include 'public/components/buttons.html' %}
-
-    </div>
+  <div class="page__header">
+  {% include 'public/components/nav.html' %}
 
   </div>
+
 </div>
 
-<div class="page__bottom project grid">
+<div class="page__bottom project">
+
+
   <div class="project__about">
 
     {% if project.description %}
     <div class="project__description">
       {{ project.description }}
     </div>
+    {% if project.detail %}
+      <p class="project__details">{{ project.detail }}</p>
+    {% endif %}
+    {% endif %}
+
+    {% if project.img_main %}
+    <div class="project__img--main" style="background-image: url({{ project.img_main.url }})"></div>
     {% endif %}
 
     {% if project.text %}
@@ -34,9 +35,7 @@
     </div>
     {% endif %}
 
-    {% if project.detail %}
-      <p class="project__details">{{ project.detail }}</p>
-    {% endif %}
+
 
   </div>
 

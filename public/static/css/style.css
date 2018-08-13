@@ -59,11 +59,6 @@ ul{
 img {
   object-fit: cover;
 }
-.grid{
-  max-width: 1600px;
-  width: 92%;
-  padding: 20px;
-}
 .main{
   min-height: 100vh;
   display: flex;
@@ -71,29 +66,25 @@ img {
   align-items: flex-start;
   box-sizing: border-box;
   flex-direction: row;
-}
-.page{
-  display: flex;
-  width: 100%;
-  align-self: flex-start;
-  flex-wrap: wrap;
-  margin: 0;
+  width: 92vw;
+  max-width: 1330px;
+  margin: 9em auto 0;
 }
 .nav{
   width: 100%;
-  margin: 9em auto 5em;
+  margin: 0 auto 3em;
   display: flex;
   align-self: flex-start;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   padding: 0;
   box-sizing: border-box;
 }
 .nav__name{
   font-family: 'CGaramondSemi';
   font-size: 1.4rem;
-  letter-spacing: 0.03em;
-  color: #181A1B;
+  letter-spacing: 0.04em;
+  color: rgba(34,36,39,0.85);
   padding: 0;
   margin:0;
   line-height: 0.8;
@@ -106,17 +97,20 @@ img {
   margin:0;
 }
 @media only screen and (max-width: 600px) {
-  nav span {
+  .main {
+    margin: 1.5em auto;
+  }
+  .nav__name span {
     display: none;
+  }
+  .nav {
+    margin: 0;
   }
 }
 .nav__link{
-  margin-left: 30px;
+  margin-left: 0.0125vw;
   color: rgba(34,36,39,0.75);
   font-size: 0.9em;
-}
-.project .nav__name, .project .nav__title {
-  color: #ffffff;
 }
 
 .content {
@@ -142,10 +136,19 @@ img {
 
 /* BUTTONS */
 .buttons {
-  margin: 0 0 2em;
+  display: flex;
+  margin: 0 0 5em;
 }
 .buttons__link{
-  margin-right: 20px;
+  margin-left: 3em;
+  color: rgba(34,36,39,0.8);
+  font-size: 1em;
+}
+@media only screen and (max-width: 600px) {
+  .buttons__link{
+    margin-left: 1.5em;
+    font-size: 0.9em;
+  }
 }
 
 /* NEW FILE */
@@ -178,7 +181,7 @@ img {
   flex-wrap: wrap;
   align-self: flex-start;
   margin: 0 auto;
-  flex-flow: column;
+  flex-direction: column;
 }
 
 .page__top--bg .nav__name, .page__top--bg .nav__title {
@@ -188,12 +191,11 @@ img {
   margin: 0 auto;
 }
 .page__header{
-  margin: 0 auto;
 
 }
 .intro{
   width: 100%;
-  margin: 0 auto 9em;
+  margin: 0 auto 5em;
 }
 .headline{
   width: calc(100% * .75 - 1.5rem);
@@ -202,7 +204,18 @@ img {
   line-height: 5.5vw;
   margin: 0;
   letter-spacing: -0.35vw;
-  min-height: 15vw;
+  min-height: 8vw;
+}
+@media only screen and (max-width: 600px) {
+  .headline{
+    width: 100%;
+    font-family: 'AvenirMed';
+    font-size: 9.25vw;
+    line-height: 12.5vw;
+    margin: 0;
+    letter-spacing: -0.35vw;
+    min-height: 0vw;
+  }
 }
 .headline span {
 
@@ -266,23 +279,31 @@ img {
 .footer{
   padding: 20px 0;
   align-self: flex-end;
-  width: calc(100% - 20px);
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   order: 99;
   border-top: 0.5px solid rgba(0,0,0,0.15);
   box-sizing: border-box;
-  margin: 0 calc(1.25em + 20px)
+  margin: 4em 0 0 0;
+  /*
+  margin: 0 calc(1.25em + 20px);
+  */
 }
 .footer__center{
   display: flex;
   justify-content: space-between;
-  min-width: 30%;
+  min-width: 20%;
 }
 .footer__link{
   color: rgba(34,36,39,0.8);
   font-size: 0.9em;
+}
+@media only screen and (max-width: 600px){
+  .footer__center {
+    min-width: 50%;
+  }
 }
 
 /* RESUME */
@@ -290,19 +311,15 @@ img {
 .resume{
   width: 100%;
   display: flex;
-  box-sizing: border-box;
-  margin: 10px auto;
-  padding: 0 20px;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 .resume__left{
-  flex-basis: auto;
-  width: 65%;
+  width: 63%;
   box-sizing: border-box;
 }
 .resume__right{
-  width: 35%;
-  margin-left: 40px;
-  flex-basis: auto;
+  width: 33%;
   box-sizing: border-box;
 }
 .section{
@@ -424,9 +441,9 @@ img {
 
 .project{
   width: 100%;
+  display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
-  overflow: hidden;
   margin: 0 auto;
 }
 .project__headline {
@@ -437,18 +454,19 @@ img {
 
 .project__img--main{
   width: 100%;
-  padding-bottom: 60%;
-  background-position: center;
+  padding-bottom: 52.83018867924528%;
+  background-position: center center;
   background-size: cover;
-  margin-top: 10px;
-  margin-bottom: 4em;
+  margin-top: 2em;
+  margin-bottom: 1em;
 }
 .project__about{
   display: flex;
-  max-width: 700px;
+  width: 100%;
+  max-width: 960px;
   overflow: hidden;
   flex-wrap: wrap;
-  margin: 7.5em auto;
+  margin: 2em auto 0;
 }
 .project__img--detail{
   max-width: 100%;
@@ -459,28 +477,30 @@ img {
 .project__description{
   font-family: 'AvenirDemi';
   width: 100%;
-  font-size: 3.25vw;
-  line-height: 3.5vw;
-  margin: 0;
+  font-size: 3.25rem;
+  line-height: 3.5rem;
+  margin: 1rem auto;
   letter-spacing: -0.1vw;
 }
+@media only screen and (max-width: 600px) {
+  .project__description {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
 .project__details{
-  list-style: none;
+  color: rgba(34,36,39,0.75);
+  margin: 1em 0;
 }
 .project__text{
-  width: 100%;
-  margin-top: 1.5rem;
-  margin-bottom: 5.5rem;
+  max-width: 680px;
+  margin: 1.5rem auto 1.5rem;
   vertical-align: text-top;
   font-size: 18px;
 }
-.project__img--right{
-  width: 100%;
-  margin: 10px 0;
-}
 .project__images{
-  width: 100%;
-  margin: 4rem 0;
+  max-width: 960px;
+  margin: 0 auto;
 }
 .image__container{
   width: 100%;
@@ -515,7 +535,7 @@ img {
   z-index: 1;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   .home__left,
   .home__right,
   .home__bottom,
