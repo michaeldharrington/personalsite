@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import raven
 from .secrets import secrets
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'public',
     'rest_framework',
+    'raven.contrib.django.raven_compat',
 ]
 
 MIDDLEWARE = [
@@ -128,3 +130,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "MEDIAROOT")
 MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(BASE_DIR, "STATICROOT")
 STATIC_URL = '/static/'
+
+# Logging
+RAVEN_CONFIG = {
+    'dsn': 'https://5bb61dc97c39474fa6543cbc087881bc:72789934b89c4e08bf6e54a135588d92@sentry.io/1262593',
+}
