@@ -2,7 +2,6 @@ from django.db import models
 
 class Project(models.Model):
     title = models.CharField(max_length=200)
-    path = models.CharField(max_length=10, default='')
     tile = models.ImageField()
     img_main = models.ImageField(blank=True)
     description = models.TextField(blank=True, default='')
