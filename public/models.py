@@ -8,7 +8,7 @@ class Project(models.Model):
     description = models.TextField(blank=True, default='')
     text = models.TextField(blank=True, default='')
     detail = models.TextField(blank=True, default='')
-    created = models.DateField(default='')
+    created = models.DateTimeField(auto_now_add=True)
     is_published = models.BooleanField(default=False)
 
 
